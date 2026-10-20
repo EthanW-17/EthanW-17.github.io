@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7f8f2">
-  <meta name="description" content="Ethan 的学术个人主页。博士研究生，关注 P3F 与压电 BAW 滤波器相关研究，欢迎科研交流与合作。">
-  <title>Ethan — 博士研究生 · P3F 与压电 BAW 滤波器研究</title>
+  <meta name="description" content="Ethan 的学术个人主页。博士研究生，关注周期性极化压电薄膜（P3F）与压电 BAW 滤波器，整理公开文献、领域研究现状与阅读笔记。">
+  <title>Ethan — P3F 与压电 BAW · 研究兴趣与文献笔记</title>
   <link rel="canonical" href="https://ethanw-17.github.io/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23252f28'/%3E%3Cpath d='M32 12v40M12 32h40M18 18l28 28M18 46l28-28' stroke='%23dbef8b' stroke-width='7'/%3E%3C/svg%3E">
   <style>
@@ -23,13 +23,53 @@
     .hero{padding-top:56px;padding-bottom:48px}
     .hero-description{max-width:440px;color:#5d6859}
     .research-section{padding:54px 0 48px}
-    .research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
-    .research-card{display:grid;grid-template-columns:24px minmax(0,1fr)24px;align-items:center;gap:18px;padding:28px 26px;min-height:130px;background:#eef2e6;border:1px solid #d7dfca;border-radius:12px}
+    .research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+    .research-card{display:block;padding:28px 26px;background:#eef2e6;border:1px solid #d7dfca;border-radius:12px;min-width:0}
     .research-card:nth-child(2){background:#f1f3eb}
-    .research-number{font-size:11px;color:#677457;align-self:start;padding-top:2px}
-    .research-label{margin:0 0 10px;font-size:9px;letter-spacing:1.1px;color:#63734f;line-height:1.7}
+    .research-number{font-size:11px;color:#52673e;letter-spacing:1px}
+    .research-label{margin:9px 0 0;font-size:11px;letter-spacing:.3px;color:#63734f;line-height:1.7}
     .research-card h3{margin:0;font-size:21px;line-height:1.55;font-weight:650;letter-spacing:-.4px}
     .research-mark{width:24px;height:24px;color:#9aad79}
+    .research-section .section-heading{flex-wrap:wrap;gap:12px}
+    .research-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+    .research-scope{display:flex;align-items:flex-start;gap:16px;margin:-5px 0 25px;padding:17px 19px;border-left:3px solid #a7be73;background:#f0f3e8;border-radius:0 8px 8px 0}
+    .scope-label{font-size:11px;font-weight:650;color:#405a2c;white-space:nowrap;padding-top:2px}
+    .research-scope p{font-size:12px;line-height:1.9;color:#5c6754;margin:0;max-width:850px}
+    .research-overview{font-size:13px;line-height:1.95;color:#58644f;margin:18px 0;min-height:7.8em}
+    .cite{font-family:Consolas,monospace;font-size:11px;font-weight:600;color:#365a21;white-space:nowrap;margin-left:4px;text-decoration:underline;text-underline-offset:3px}
+    .cite:hover{color:#1d3212}
+    .research-topics{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:21px}
+    .research-topics span{font-size:10px;padding:5px 8px;border:1px solid #d4ddc5;border-radius:5px;color:#5a6b49;background:#ffffff59}
+    .paper-details{border-top:1px solid #ccd7bc}
+    .paper-details>summary,.references>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:12px;font-weight:600;line-height:1.8;padding:18px 0 0;color:#3f572f}
+    .paper-details>summary::-webkit-details-marker,.references>summary::-webkit-details-marker{display:none}
+    .paper-details>summary::after,.references>summary::after{content:"+";font-size:21px;font-weight:400;line-height:1;flex:none}
+    .paper-details[open]>summary::after,.references[open]>summary::after{content:"−"}
+    .paper-list{list-style:none;padding:0;margin:24px 0 0}
+    .paper-list li{margin:0;padding:0 0 21px;border-bottom:1px solid #d7dfca}
+    .paper-list li+li{padding-top:21px}
+    .paper-meta{display:flex;align-items:center;flex-wrap:wrap;gap:7px 10px;font-size:10px;color:#687557;line-height:1.7}
+    .paper-meta time{font-family:Consolas,monospace;font-size:10px;color:#40562e;background:#e0e8cf;border-radius:4px;padding:3px 6px}
+    .paper-list h4,.reading-focus h4{font-size:14px;line-height:1.7;font-weight:650;margin:9px 0 7px;color:#2f4028}
+    .paper-list p,.reading-focus p{font-size:12px;line-height:1.95;color:#59674f;margin:0}
+    .reading-focus{padding-top:13px}
+    .reading-focus p+p{margin-top:10px}
+    .recent-reading{margin-top:22px;padding:20px 23px;border:1px solid #dbe1d0;border-radius:10px;background:#f2f4ec}
+    .recent-reading>div{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .recent-reading .eyebrow{font-size:9px;color:#60734c}
+    .paper-status{font-size:10px;line-height:1.7;color:#526443;border:1px solid #ccd8b9;border-radius:4px;padding:3px 7px}
+    .recent-reading p{font-size:12px;line-height:1.95;color:#5b6752;margin:10px 0 0}
+    .references{margin-top:20px;border:1px solid #d8dfcf;border-radius:10px;padding:0 23px;background:#fafbf6}
+    .references>summary{font-size:13px;padding:19px 0}
+    .references>summary span{font-size:10px;font-weight:400;color:#69745e;margin-left:auto}
+    .references-note{font-size:11px;line-height:1.9;margin:0 0 20px;color:#66735a}
+    .reference-list{margin:0 0 22px;padding-left:25px;columns:2;column-gap:36px;font-size:11px;color:#536347}
+    .reference-list li{padding-left:3px;margin:0 0 19px;break-inside:avoid;line-height:1.7}
+    .reference-title,.reference-meta{display:block;overflow-wrap:anywhere}
+    .reference-title{font-size:11px;color:#34442c;font-weight:600;margin-bottom:6px}
+    .reference-meta{font-size:10px;color:#6a745f;margin-bottom:5px}
+    .reference-list a{display:inline-block;font-size:10px;text-decoration:underline;text-underline-offset:3px;color:#3f5f2a;margin-right:12px}
+    .reference-list a:hover{color:#203719}
     .research-invitation{display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px;margin:22px 0 0;font-size:12px;line-height:1.9;color:#637058}
     .research-invitation .text-link{color:#435e22}
     .works-section{border-top:1px solid var(--line);padding:49px 0 50px}
@@ -38,7 +78,7 @@
     .section-aside{color:#637058}
     .demo-caption{color:#69735f;font-size:11px}
     .contact-panel .eyebrow,.contact-panel p{color:#596c3c}
-    @media(max-width:760px){.research-section{padding:37px 0}.research-grid{grid-template-columns:1fr;gap:14px}.research-card{padding:22px 20px;min-height:115px;gap:14px}.research-card h3{font-size:20px}.research-invitation{margin-top:18px}.research-label{font-size:9px;letter-spacing:.7px}}
+    @media(max-width:760px){.research-section{padding:37px 0}.research-grid{grid-template-columns:1fr;gap:18px}.research-card{padding:22px 20px}.research-card h3{font-size:21px}.research-invitation{margin-top:18px}.research-label{font-size:10px}.research-scope{flex-direction:column;gap:7px;padding:15px;margin-bottom:21px}.research-overview{min-height:0}.recent-reading{padding:18px}.references{padding:0 18px}.references>summary{flex-wrap:wrap;gap:5px 10px}.references>summary span{display:none}.reference-list{columns:1;padding-left:22px}.research-section .section-heading .section-aside{display:block;font-size:10px}}
     @keyframes orbit-spin{to{transform:rotate(360deg)}}
     @media(min-width:1600px){.hero{padding-top:95px;padding-bottom:80px}.hero h1{font-size:65px}}
     @media(max-width:1050px){.wrap{width:calc(100% - 56px)}.hero{gap:30px;padding-top:64px}.hero h1{font-size:46px;letter-spacing:-2px}.hero-description{font-size:13px}.hero-actions{gap:16px}.project-grid{gap:18px}.about-section{gap:40px}.strip-items{gap:25px}.contact-panel:after{right:155px}}
@@ -61,20 +101,20 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a href="#top" class="brand" aria-label="Ethan 首页"><svg class="brand-mark" aria-hidden="true"><use href="#i-star"/></svg><span class="brand-name">Ethan<span>.W17</span></span></a>
-      <nav class="desktop-nav" aria-label="主导航"><a href="#research">研究方向</a><a href="#about">关于</a><a href="#work">交互演示</a><a href="#contact">联系</a></nav>
+      <nav class="desktop-nav" aria-label="主导航"><a href="#research">研究现状</a><a href="#about">关于</a><a href="#work">交互演示</a><a href="#contact">联系</a></nav>
       <a class="header-github" href="https://github.com/EthanW-17" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub<svg class="icon" style="width:12px;height:12px" aria-hidden="true"><use href="#i-up-right"/></svg></a>
       <button class="menu-button" type="button" id="menu-button" aria-expanded="false" aria-controls="mobile-nav" aria-label="展开导航"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="手机导航" hidden><a href="#research">研究方向</a><a href="#about">关于</a><a href="#work">交互演示</a><a href="#contact">联系</a></nav>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="手机导航" hidden><a href="#research">研究现状</a><a href="#about">关于</a><a href="#work">交互演示</a><a href="#contact">联系</a></nav>
   </header>
   <main id="main">
     <section class="wrap hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <div class="hello mono"><span class="status-dot" aria-hidden="true"></span>RESEARCH &amp; EXPLORATION</div>
+        <div class="hello mono"><span class="status-dot" aria-hidden="true"></span>RESEARCH INTERESTS &amp; READING</div>
         <!-- EDIT: 首页身份与研究方向使用本人确认的信息。 -->
         <h1 id="hero-title">Ethan<br><span class="highlight">博士研究生。</span></h1>
-        <p class="hero-description">目前关注 P3F 与压电 BAW 滤波器相关研究。<br>欢迎与我交流研究问题与合作想法。</p>
-        <div class="hero-actions"><a class="button" href="#research">查看研究方向<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="text-link" href="#contact">联系交流<svg class="icon" style="width:15px;height:15px" aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        <p class="hero-description">关注周期性极化压电薄膜（P3F）与压电 BAW 滤波器。<br>在这里整理公开文献，了解领域进展与研究问题。</p>
+        <div class="hero-actions"><a class="button" href="#research">阅读研究现状<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="text-link" href="#contact">联系交流<svg class="icon" style="width:15px;height:15px" aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
         <div class="hero-footnote mono">P3F · PIEZOELECTRIC BAW FILTERS</div>
       </div>
       <div class="hero-art">
@@ -86,19 +126,68 @@
         <div class="floating-note"><svg class="note-star" aria-hidden="true"><use href="#i-star"/></svg><div><strong>从研究问题开始交流。</strong><span class="mono">OPEN TO DISCUSSION.</span></div></div>
       </div>
     </section>
-    <div class="wrap intro-strip"><div class="strip-items mono"><span><i aria-hidden="true"></i>RESEARCH</span><span><i aria-hidden="true"></i>DISCUSSION</span><span><i aria-hidden="true"></i>COLLABORATION</span></div><span class="strip-end">学术个人主页<svg class="icon" style="width:12px;height:12px" aria-hidden="true"><use href="#i-up-right"/></svg></span></div>
+    <div class="wrap intro-strip"><div class="strip-items mono"><span><i aria-hidden="true"></i>RESEARCH</span><span><i aria-hidden="true"></i>READING</span><span><i aria-hidden="true"></i>DISCUSSION</span></div><span class="strip-end">研究兴趣与文献笔记<svg class="icon" style="width:12px;height:12px" aria-hidden="true"><use href="#i-up-right"/></svg></span></div>
     <section class="wrap research-section" id="research" aria-labelledby="research-title">
-      <div class="section-heading"><div><span class="eyebrow mono">01 / RESEARCH INTERESTS</span><h2 id="research-title">研究方向</h2></div><p class="section-aside">目前关注的两项研究方向</p></div>
-      <!-- EDIT: 补充本人确认、可公开的研究问题、个人贡献与进展；勿将演示图当作研究数据。 -->
+      <div class="section-heading"><div><span class="eyebrow mono">01 / LITERATURE OVERVIEW</span><h2 id="research-title">研究兴趣与领域现状</h2></div><p class="section-aside"><time datetime="2026-10-20">2026.10.20</time> 整理</p></div>
+      <div class="research-scope"><span class="scope-label">公开文献梳理</span><p>以下介绍关注方向中的代表性公开研究，结果归属于所引用论文的作者。这里呈现领域进展与学习线索，不作为我的个人研究成果或进度。</p></div>
+      <!-- EDIT: 本区仅梳理公开文献。新增结论须附原始来源、年份、器件类别和必要的测试条件。 -->
       <div class="research-grid">
-        <article class="research-card" aria-labelledby="p3f-title"><span class="research-number mono">01</span><div><p class="research-label mono">P3F</p><h3 id="p3f-title">P3F 相关研究</h3></div><svg class="research-mark" aria-hidden="true"><use href="#i-star"/></svg></article>
-        <article class="research-card" aria-labelledby="baw-title"><span class="research-number mono">02</span><div><p class="research-label mono">PIEZOELECTRIC BAW FILTERS</p><h3 id="baw-title">压电 BAW 滤波器</h3></div><svg class="research-mark" aria-hidden="true"><use href="#i-star"/></svg></article>
+        <article class="research-card" aria-labelledby="p3f-title">
+          <div class="research-card-header"><span class="research-number mono">01 / P3F</span><svg class="research-mark" aria-hidden="true"><use href="#i-star"/></svg></div>
+          <h3 id="p3f-title">周期性极化压电薄膜</h3>
+          <p class="research-label">Periodically Poled Piezoelectric Film</p>
+          <p class="research-overview">通过配置压电层的极化或晶体取向，使机电激励更好地匹配目标高阶声学模态。AlScN 与铌酸锂（LiNbO<sub>3</sub>）平台已有谐振器及滤波器实验报道。部分 AlScN 文献也使用 Periodically Polarized 的写法。<a class="cite" href="https://doi.org/10.1109/IMS37964.2023.10188141" target="_blank" rel="noopener noreferrer" aria-label="参考文献1：AlScN P3F 泛音谐振器">[1]</a><a class="cite" href="https://arxiv.org/abs/2402.12194" target="_blank" rel="noopener noreferrer" aria-label="参考文献2：双层铌酸锂 P3F 滤波器">[2]</a></p>
+          <div class="research-topics" aria-label="文献主题"><span>极化与层叠设计</span><span>高阶声学模态</span><span>高频滤波原型</span></div>
+          <details class="paper-details" id="p3f-reading">
+            <summary id="p3f-summary">P3F：代表进展与关注问题</summary>
+            <ol class="paper-list">
+              <li><div class="paper-meta"><time datetime="2024">2024</time><span>LiNbO<sub>3</sub> · 滤波器实验</span></div><h4>双层 P3F 的 23.8 GHz 滤波器</h4><p>Cho 等利用 S2 Lamb 模态构建三阶梯形滤波器。50 Ω 测量下，插入损耗为 1.52 dB，3 dB 相对带宽为 19.4%。<a class="cite" href="https://arxiv.org/abs/2402.12194" target="_blank" rel="noopener noreferrer" aria-label="阅读参考文献2">[2]</a></p></li>
+              <li><div class="paper-meta"><time datetime="2025">2025</time><span>AlScN · 滤波器实验</span></div><h4>四层 AlScN 的约 17.4 GHz 滤波器</h4><p>Izhar 等在四层 P3F 中制备高频谐振器，并实现三元件与六元件滤波器，展示该结构在 AlScN 平台上的器件与电路实现。<a class="cite" href="https://www.nature.com/articles/s41378-024-00857-4" target="_blank" rel="noopener noreferrer" aria-label="阅读参考文献3">[3]</a></p></li>
+              <li><div class="paper-meta"><time datetime="2026">2026</time><span>LiNbO<sub>3</sub> · 滤波器实验</span></div><h4>四层 P3F 的约 50 GHz 滤波器</h4><p>Barrera 等采用四层 LiNbO<sub>3</sub> 与 S12 模态，制备并测量中心频率约 50.1 GHz 的滤波器；论文同时讨论层厚控制、寄生响应和滤波器频差设计。<a class="cite" href="https://arxiv.org/abs/2506.22549" target="_blank" rel="noopener noreferrer" aria-label="阅读参考文献4">[4]</a></p></li>
+            </ol>
+            <div class="reading-focus"><h4>阅读关注点</h4><p>层厚偏差如何影响模态纯度与带外抑制？高频布线的电磁寄生如何进入器件模型？这些问题在约 50 GHz 滤波器工作中已有直接讨论。<a class="cite" href="https://arxiv.org/abs/2506.22549" target="_blank" rel="noopener noreferrer" aria-label="阅读参考文献4的讨论">[4]</a></p><p>延伸阅读：多层压电平台的通用声学框架，以及利用反向晶向双层结构补偿残余应力的研究。<a class="cite" href="https://doi.org/10.1109/TUFFC.2025.3595433" target="_blank" rel="noopener noreferrer" aria-label="参考文献8：多层压电平台通用声学框架">[8]</a><a class="cite" href="https://arxiv.org/abs/2604.20694" target="_blank" rel="noopener noreferrer" aria-label="参考文献9：梯度残余应力与双层补偿">[9]</a></p></div>
+          </details>
+        </article>
+        <article class="research-card" aria-labelledby="baw-title">
+          <div class="research-card-header"><span class="research-number mono">02 / BAW</span><svg class="research-mark" aria-hidden="true"><use href="#i-star"/></svg></div>
+          <h3 id="baw-title">压电 BAW 滤波器</h3>
+          <p class="research-label">Piezoelectric Bulk Acoustic Wave Filters</p>
+          <p class="research-overview">利用压电薄膜中的体声波谐振实现射频频率选择。这里主要关注 AlN / ScAlN 薄膜路线：FBAR 借助空气腔体隔离声能，SMR 借助声学反射层限制声能泄漏。材料、薄膜质量与电极设计共同影响耦合和损耗。<a class="cite" href="https://evatecnet.com/media/x3lbx13j/evatec-layers7-se-baw-hot-chuck.pdf" target="_blank" rel="noopener noreferrer" aria-label="参考资料11：BAW 工艺与结构">[11]</a></p>
+          <div class="research-topics" aria-label="文献主题"><span>FBAR / SMR</span><span>薄膜与电极</span><span>带宽与损耗</span></div>
+          <details class="paper-details" id="baw-reading">
+            <summary id="baw-summary">BAW：代表进展与关注问题</summary>
+            <ol class="paper-list">
+              <li><div class="paper-meta"><time datetime="2025">2025</time><span>ScAlN · 单谐振器实验</span></div><h4>12.5 GHz ScAlN FBAR</h4><p>Cho 等使用 ScAlN 薄膜与 Pt 底电极实现 12.5 GHz 谐振器，并报告 Q 为 208、耦合系数 k² 为 9.5%，为高频薄膜与电极协同设计提供实验案例。<a class="cite" href="https://arxiv.org/abs/2504.20014" target="_blank" rel="noopener noreferrer" aria-label="阅读参考文献5">[5]</a></p></li>
+              <li><div class="paper-meta"><time datetime="2026">2026</time><span>ScAlN · 滤波器实验</span></div><h4>11.7 GHz FBAR 滤波器与损耗分析</h4><p>已发表的单层 ScAlN 梯形滤波器，在 50 Ω 测量下获得 4.0% 的 3 dB 相对带宽与 6.8 dB 最小插入损耗。论文分析材料、电极、频差与残余应力带来的高频化限制。<a class="cite" href="https://arxiv.org/abs/2509.03679" target="_blank" rel="noopener noreferrer" aria-label="阅读参考文献6">[6]</a></p></li>
+              <li><div class="paper-meta"><time datetime="2026">2026</time><span>ScAlN · 单谐振器实验</span></div><h4>62.6 GHz 固态装配谐振器</h4><p>Wang 等将 ScAlN / Pt 堆栈置于 SiO<sub>2</sub> / Ta<sub>2</sub>O<sub>5</sub> 布拉格反射器上，实现三阶厚度伸缩模式的 SMR。该结果对应单个谐振器的实测响应。<a class="cite" href="https://arxiv.org/abs/2510.11994" target="_blank" rel="noopener noreferrer" aria-label="阅读参考文献7">[7]</a></p></li>
+            </ol>
+            <div class="reading-focus"><h4>阅读关注点</h4><p>提高工作频率时，怎样同时保持薄膜晶质、降低电极损耗并控制残余应力？从单个谐振器走向滤波电路，还需要考虑串并联谐振器频差、端口匹配与带宽。<a class="cite" href="https://arxiv.org/abs/2509.03679" target="_blank" rel="noopener noreferrer" aria-label="阅读参考文献6的分析">[6]</a></p><p>AlScN 与 ScAlN 均表示钪掺杂氮化铝，页面沿用各论文的写法；不同研究的 Q、耦合系数和滤波指标，应结合原文定义及测量条件阅读。</p></div>
+          </details>
+        </article>
       </div>
-      <p class="research-invitation">欢迎围绕以上方向交流研究问题与合作想法。<a class="text-link" href="#contact">联系交流<svg class="icon" style="width:14px;height:14px" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+      <div class="recent-reading"><div><span class="eyebrow mono">RECENT READING</span><span class="paper-status">2026.09 · 预印本</span></div><p>近期公开探索还包括双层 LiNbO<sub>3</sub> 的厚度剪切泛音谐振器，用于研究亚 GHz / 低 GHz 频段的高 Q 模态。这是一项谐振器实验，当前公开版本为预印本。<a class="cite" href="https://arxiv.org/abs/2609.14222" target="_blank" rel="noopener noreferrer" aria-label="参考文献10：双层铌酸锂厚度剪切泛音谐振器预印本">[10]</a></p></div>
+      <details class="references" id="references">
+        <summary id="references-summary">参考文献与开放版本<span>原始论文 · 发表状态 · 阅读链接</span></summary>
+        <p class="references-note">按本文引用顺序编号；期刊年份按正式卷期或公开发表状态列出，arXiv 链接用于阅读作者公开稿。文献选择截至 <time datetime="2026-10-20">2026-10-20</time>，为代表性梳理。</p>
+        <ol class="reference-list">
+          <li><span class="reference-title">Vetury et al. · A Manufacturable AlScN Periodically Polarized Piezoelectric Film Bulk Acoustic Wave Resonator…</span><span class="reference-meta">IMS 2023 · 会议论文 · AlScN P3F 器件</span><a href="https://doi.org/10.1109/IMS37964.2023.10188141" target="_blank" rel="noopener noreferrer">DOI</a><a href="https://akoustis.com/wp-content/uploads/2025/09/Th1E-a1scn-p3f-baw-resonator-x-ku-band-overtone.pdf" target="_blank" rel="noopener noreferrer">作者机构公开稿 ↗</a></li>
+          <li><span class="reference-title">Cho et al. · 23.8-GHz Acoustic Filter in Periodically Poled Piezoelectric Film Lithium Niobate With 1.52-dB IL and 19.4% FBW</span><span class="reference-meta">IEEE Microwave and Wireless Technology Letters 34(4), 391–394 · 2024 · 期刊论文</span><a href="https://doi.org/10.1109/LMWT.2024.3368354" target="_blank" rel="noopener noreferrer">DOI</a><a href="https://arxiv.org/abs/2402.12194" target="_blank" rel="noopener noreferrer">开放作者稿 ↗</a></li>
+          <li><span class="reference-title">Izhar et al. · Periodically Poled Aluminum Scandium Nitride Bulk Acoustic Wave Resonators and Filters for Communications in the 6G Era</span><span class="reference-meta">Microsystems &amp; Nanoengineering 11, 19 · 2025 · 期刊论文</span><a href="https://doi.org/10.1038/s41378-024-00857-4" target="_blank" rel="noopener noreferrer">出版全文 ↗</a><a href="https://arxiv.org/abs/2406.15431" target="_blank" rel="noopener noreferrer">开放作者稿 ↗</a></li>
+          <li><span class="reference-title">Barrera et al. · 50 GHz Piezoelectric Acoustic Filter</span><span class="reference-meta">IEEE Journal of Microwaves 6(2), 391–400 · 2026 · 期刊论文</span><a href="https://doi.org/10.1109/JMW.2026.3661341" target="_blank" rel="noopener noreferrer">DOI</a><a href="https://arxiv.org/abs/2506.22549" target="_blank" rel="noopener noreferrer">开放作者稿 ↗</a></li>
+          <li><span class="reference-title">Cho et al. · Thin-Film Scandium Aluminum Nitride Bulk Acoustic Resonator with High Q of 208 and K² of 9.5% at 12.5 GHz</span><span class="reference-meta">Transducers 2025 · 已发表会议论文</span><a href="https://doi.org/10.1109/Transducers61432.2025.11110376" target="_blank" rel="noopener noreferrer">DOI</a><a href="https://arxiv.org/abs/2504.20014" target="_blank" rel="noopener noreferrer">开放作者稿 ↗</a></li>
+          <li><span class="reference-title">Cho et al. · An 11.7-GHz ScAlN FBAR Filter: Case Study on Scaling Limits and Challenges</span><span class="reference-meta">IEEE Journal of Microelectromechanical Systems 35(1), 96–104 · 2026 · 期刊论文（2025 年先行公开）</span><a href="https://doi.org/10.1109/JMEMS.2025.3635664" target="_blank" rel="noopener noreferrer">DOI</a><a href="https://arxiv.org/abs/2509.03679" target="_blank" rel="noopener noreferrer">开放作者稿 ↗</a></li>
+          <li><span class="reference-title">Wang et al. · 62.6 GHz ScAlN Solidly Mounted Acoustic Resonators</span><span class="reference-meta">Applied Physics Letters 128(4), 042201 · 2026 · 期刊论文</span><a href="https://doi.org/10.1063/5.0306947" target="_blank" rel="noopener noreferrer">DOI</a><a href="https://arxiv.org/abs/2510.11994" target="_blank" rel="noopener noreferrer">开放作者稿 ↗</a></li>
+          <li><span class="reference-title">Kramer &amp; Lu · A Generalized Acoustic Framework for Multilayer Piezoelectric Platforms</span><span class="reference-meta">IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control 72(9), 1302–1311 · 2025 · 期刊论文</span><a href="https://doi.org/10.1109/TUFFC.2025.3595433" target="_blank" rel="noopener noreferrer">论文与摘要 ↗</a></li>
+          <li><span class="reference-title">Kim et al. · Gradient Residual Stress in Transferred Thin-Film Lithium Niobate and Its Compensation Using Periodically Poled Piezoelectric Bilayers</span><span class="reference-meta">IEEE Journal of Microelectromechanical Systems · 2026 · 已接收 / 出版中，附公开作者稿</span><a href="https://doi.org/10.1109/JMEMS.2026.3720480" target="_blank" rel="noopener noreferrer">DOI</a><a href="https://arxiv.org/abs/2604.20694" target="_blank" rel="noopener noreferrer">开放作者稿 ↗</a></li>
+          <li><span class="reference-title">Yao et al. · Bimorph Lithium Niobate Thickness-Shear Overtone Film Bulk Acoustic Resonator</span><span class="reference-meta">arXiv:2609.14222 · 2026-09-13 · 预印本</span><a href="https://arxiv.org/abs/2609.14222" target="_blank" rel="noopener noreferrer">预印本全文入口 ↗</a></li>
+          <li><span class="reference-title">Evatec · Meeting the Challenges for New BAW Processes – Very Hot Chuck Solutions</span><span class="reference-meta">设备厂商技术资料 · 用于 FBAR / SMR 基础结构与薄膜工艺说明</span><a href="https://evatecnet.com/media/x3lbx13j/evatec-layers7-se-baw-hot-chuck.pdf" target="_blank" rel="noopener noreferrer">官方 PDF ↗</a></li>
+        </ol>
+      </details>
+      <p class="research-invitation">欢迎交流文献、研究问题与学习心得。<a class="text-link" href="#contact">联系交流<svg class="icon" style="width:14px;height:14px" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
     </section>
     <section class="wrap about-section" id="about" aria-labelledby="about-title">
       <div class="about-left"><span class="eyebrow mono">02 / ABOUT ME</span><h2 id="about-title">关于我</h2><div class="about-signature"><span class="signature-line" aria-hidden="true"></span><span class="mono">Ethan / @EthanW-17</span></div></div>
-      <div class="about-right"><p>你好，我是 Ethan，一名博士研究生，目前关注 P3F 与压电 BAW 滤波器相关研究。</p><p>这里介绍我的研究方向，也会逐步整理可公开分享的工作与记录。欢迎对相关问题感兴趣的朋友与我交流。</p><div class="interests" aria-label="身份与研究方向"><span class="interest">博士研究生</span><span class="interest">P3F</span><span class="interest">压电 BAW 滤波器</span></div></div>
+      <div class="about-right"><p>你好，我是 Ethan，一名博士研究生，关注周期性极化压电薄膜（P3F）与压电 BAW 滤波器。</p><p>这个主页围绕上述方向整理公开文献与领域研究现状，作为学习和交流的入口。欢迎分享相关论文、阅读心得与研究问题。</p><div class="interests" aria-label="身份与研究兴趣"><span class="interest">博士研究生</span><span class="interest">P3F</span><span class="interest">压电 BAW 滤波器</span><span class="interest">文献学习</span></div></div>
     </section>
     <section class="wrap works-section" id="work" aria-labelledby="work-title">
       <div class="section-heading"><div><span class="eyebrow mono">03 / INTERACTIVE DEMOS</span><h2 id="work-title">交互演示</h2></div><p class="section-aside">点击卡片，体验三个网页示例。</p></div>
@@ -195,7 +284,7 @@
       </div>
       <p class="demo-caption"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>以上为网页交互示例，不代表 P3F 或 BAW 研究成果。波形为数学示意，轨道为几何动画，笔记为示例文字。</p>
     </section>
-    <section class="wrap contact-section" id="contact" aria-labelledby="contact-title"><div class="contact-panel"><div><span class="eyebrow mono">04 / GET IN TOUCH</span><h2 id="contact-title">欢迎科研交流与合作。</h2><p>如果你也关注 P3F 或压电 BAW 滤波器，欢迎交流研究问题与合作想法。</p></div><div class="contact-actions"><a class="button" href="https://github.com/EthanW-17" target="_blank" rel="noopener noreferrer">查看我的 GitHub<svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg></a><button class="copy-button" id="copy-github" type="button"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>复制 GitHub 地址</button></div></div></section>
+    <section class="wrap contact-section" id="contact" aria-labelledby="contact-title"><div class="contact-panel"><div><span class="eyebrow mono">04 / GET IN TOUCH</span><h2 id="contact-title">欢迎交流文献与研究问题。</h2><p>如果你也关注 P3F 或压电 BAW 滤波器，欢迎分享论文、学习心得与合作想法。</p></div><div class="contact-actions"><a class="button" href="https://github.com/EthanW-17" target="_blank" rel="noopener noreferrer">查看我的 GitHub<svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg></a><button class="copy-button" id="copy-github" type="button"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>复制 GitHub 地址</button></div></div></section>
   </main>
   <footer class="site-footer"><div class="wrap footer-inner"><div class="footer-left"><span>© <span id="year">2026</span> Ethan.W17</span><span class="footer-dot" aria-hidden="true"></span><span>保持好奇，持续探索。</span></div><div class="footer-right"><span class="mono footer-demo">RESEARCH HOMEPAGE</span><a class="back-top" href="#top">回到顶部<svg class="icon" style="transform:rotate(-90deg)" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
